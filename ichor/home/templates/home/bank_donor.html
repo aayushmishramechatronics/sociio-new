@@ -1,0 +1,175 @@
+{% extends 'home/base.html' %} {% load static %} {% block head %}
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+    .form-control {
+        width: 100%;
+    }
+    
+    .form-div {
+        width: 100%;
+    }
+    
+    @media (max-width: 767px) {
+        .form-div {
+            width: 90vw;
+            margin-top: 15% !important;
+        }
+        .form-cont {
+            margin: 3%;
+        }
+        .head-text {
+            margin-top: 15%;
+            font-size: 3rem !important;
+        }
+        .head-text span {
+            margin-top: 30%;
+            font-size: 3rem !important;
+        }
+    }
+    
+    .btn-outline-danger {
+        border-color: rgb(255, 169, 183);
+    }
+    
+    .btn-outline-danger:hover {
+        background-color: rgb(15, 15, 15);
+        border-color: rgb(17, 17, 17);
+        color: rgb(248, 242, 242);
+    }
+    
+    a {
+        text-decoration: none;
+        color: white;
+    }
+    
+    .head-text {
+        font-family: Oswald;
+        letter-spacing: 2px;
+        font-weight: 700;
+        font-size: 4.5rem;
+    }
+    
+    .head-text span {
+        font-family: Oswald;
+        font-size: 4.5rem;
+        letter-spacing: 2px;
+        font-weight: 700;
+        color: #CA4246;
+    }
+    
+    .subtext {
+        font-family: Roboto;
+        font-size: 1.5rem;
+        font-style: italic;
+    }
+    
+    @import url(https://fonts.googleapis.com/css?family=Roboto:400,500);
+    @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css);
+    *,
+    *:before,
+    *:after {
+        box-sizing: border-box;
+    }
+    
+    html,
+    body {
+        height: 100%;
+    }
+    
+    body {
+        color: rgb(37, 36, 36) !important;
+        font-family: Karla;
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+    .form-control{
+        border-bottom: 2px solid rgb(241, 239, 239) !important;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        background-color: transparent;
+        
+    }
+    p{
+        color: white !important;
+        font-size: 17px !important;
+    }
+    input, select{
+        background-color: transparent !important;
+        box-shadow: none;
+        border: none;
+        border-bottom: 2px white solid;
+    }
+  
+</style>
+
+{% endblock head %} {% block content %}
+
+<div class="container-fluid  phone-margin"data-aos="fade" data-aos-delay="300" data-aos-duration="1000" style="margin-top: 10%;">
+    <h1 class="head-text text-center" style="font-family: Karla !important;">Become a <span  style="font-family: Karla !important;">donor</span> today!</h1>
+    <p class="lead subtext text-center" style="color: black !important; font-size:18px !important;">
+        Be someone’s beacon of hope
+    </p>
+</div>
+
+<div class="container"data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 form-cont form-kmc" style=" margin-top: 3%;  background-color:white; border-radius: 7px; padding: 5%; margin-bottom: 3%;" class="container form-div">
+            <form method="POST">
+                {% csrf_token %}
+                <table>
+                    {{ bank_form.as_p }}
+                </table>
+                <!-- Button trigger modal -->
+                <a type="button" style="color: #8a8787;" class="btn-donate " data-toggle="modal" data-target="#staticBackdrop">
+                        Terms and condition
+                </a>
+
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">Terms and Conditions</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+                            </div>
+                            <div class="modal-body">
+                                1. I confirm that the information I provided in this document is accurate and true.
+                                <br> 2. I confirm that I wish to share the information provided here to SOCIIO for the exclusive purpose of matching with patients and sharing this information directly and solely with the matched patients. (and/or kin)
+                                <br> 3. I agree to not hold SOCIIO accountable for the use of information for the exclusive purpose(s) as stated above. </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <hr>
+                <input type="submit" style="width: 50%;" class="btn btn-light-form" value="Submit" />
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+{% endblock content %} {% block scripts %}
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<title>Become a donor</title>
+
+<script>
+    $(document).ready(function() {
+        $('#id_city').select2();
+        $('#id_state').select2();
+    });
+</script>
+
+{% endblock scripts %}

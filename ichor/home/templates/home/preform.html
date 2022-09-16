@@ -1,0 +1,17 @@
+{% extends "home/base.html" %}
+
+{% block content %}
+<div class="container text-center preform-div"  data-aos="fade" data-aos-delay="300" data-aos-duration="1000" style="margin-top:15%;">
+    <div class="card ">
+        <div class="card-body kmc-card">
+            <h1 class="my-5" >How do you want to register?</h1>
+         <div class="group my-5">
+            <a href="{% url 'home:donor' %}" > <button class="btn preform mx-3">Individual</button></a>
+
+            <a href="{% url 'home:bank-donor' %}" > <button class="btn preform mx-3">NGO</button></a>
+         </div>
+
+        </div>
+    </div>
+</div>
+{% endblock content %}

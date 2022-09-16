@@ -1,0 +1,193 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+{% load social_share %}
+
+
+<div class="container" style="margin-top: 15%; width: 70%;">
+    <div class="row">
+        <div class="card kmc-card card-body justify-content-center" data-aos="fade" data-aos-delay="300" data-aos-duration="1000">
+        <div class="row">
+            <div class="col-lg-3 img justify-content-center">
+                <img src="{% static 'home/image/logo/logox.png' %}" width="80%" alt="logo">
+    
+            </div>
+            <div class="col-lg-4">
+                <p class="text-muted">Posted on - {{ blood.time_stamp }} <br><b> ID: {{ blood.blood_request_id }}</b></p>
+                <p class="kmc-blood-item"><span><b>Blood Group - </b>{{ blood.blood_group }}</span></p>
+                
+{% if blood.acceptable_blood_group %}
+<p class="kmc-blood-item"><span><b>Acceptable Blood Groups - </b>{{ blood.acceptable_blood_group }}</span></p>
+
+{% endif %}
+  
+               
+               {% if blood.blood_type %}
+
+               <p class="kmc-blood-item"><span><b>Blood Type - </b>{{ blood.blood_type }}</span></p>
+                 
+               {% endif %}
+                 
+                <p class="kmc-blood-item"><span><b>Units required - </b>{{ blood.units }}</span></p>
+                
+                {% if blood.address %}
+                <p class="kmc-blood-item"><span><b>Hospital Address - </b>{{ blood.address }}</span></p>
+
+                {% endif %}
+                {% if blood.custom_field_key %}
+                <p class="kmc-blood-item"></p> <b>{{ blood.custom_field_key }}</b> : {{ blood.custom_field_value }}</p>
+
+                {% endif %}
+                {% if blood.note %}
+                <p class="kmc-blood-item"></p> Note : {{ blood.note }}</p>
+
+                {% endif %}
+                    
+                
+           
+                  
+
+                <!-- Button trigger modal -->
+                
+<button type="button" class="btn request-btn mx-2 btn-success my-3" data-toggle="modal" data-target="#exampleModalCenter">
+    Share
+  </button>
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color: rgba(0, 0, 0, 0.37);" data-backdrop="false">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Share</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          
+            <span class="ichor-share-link ">{% post_to_whatsapp object_or_url  'WhatsApp' %}</span>
+            <span class="ichor-share-link">{% post_to_twitter object_or_url "Twitter" 'Twitter' %}</span>
+            <span class="ichor-share-link">{% post_to_facebook object_or_url 'Facebook' %}</span>
+            <button class="btn btn-secondary" type="button" onclick="getURL();">Get Page URL</button>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button type="button" data-backdrop="false" class="btn btn-success my-3 request-btn" data-toggle="modal" data-target="#modal2">
+    Donate
+  </button>
+  <div class="modal fade" style="z-index: 0; background-color: rgba(0, 0, 0, 0.473);"  id="modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Contact us</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          
+            <span class="ichor-share-link "> <a href="tel:{{ blood.phone }}"> Call us on - {{ blood.Phone }}</a></span>
+           
+
+        </div>
+       
+      </div>
+    </div>
+      </div>
+      
+
+
+        </div>
+        <div class="col-lg-5 py-2 ichor-guide">
+            <p><b>Eligibility for donating blood is as follows:</b>
+                <br>
+<p>              <li>Age should be between 18 and 60 years.</li>
+</p>            
+<p>  <li>Should not have consumed alcohol or been intoxicated within the last 9 hours.
+    
+</li></p>
+              <p><li>Should not have consumed alcohol or been intoxicated within the last 9 hours.
+    
+            </li></p>
+              
+            </p>
+             <a type="button" class="" data-toggle="modal" data-target="#exampleModal">
+              Read more
+             </a>
+            
+            <!-- Modal -->
+            <div class="modal fade" data-backdrop="false"  id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" >
+                <div class="modal-content"style="background-color:#b12d2d; color: rgb(255, 255, 255) !important;" >
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Guidelines to follow</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+    
+                  <div class="modal-dialog modal-dialog-scrollable" >
+                    <p class="lead" style="padding: 3%; font-size: 17px; color: white;">
+                     <span> If you are eligible, you may register as a blood donor, but at the time of donating blood, follow the instructions mentioned below:</span>
+                     <br><br>
+                      Your weight should be 45kg or above
+                      <br><br>
+                      Minimum haemoglobin count should be 12.5gm.
+                      <br><br>
+                      Pulse rate should be between 50 and 100 per minute, without any irregularities.
+                      <br><br>
+                      Blood pressure should be diastolic 50 to 100 mm Hg and Systolic 100 to 180 mm Hg.
+                      <br><br>
+                      Body temperature should be normal and oral temperature should not exceed 37.5 degree Celsius.
+                      <br><br>
+                      Should not have undergone any treatment for rabies or received Hepatitis B immune globulin within the past one year.
+                      <br><br>
+                      Should not have donated blood within the last three months.
+                      <br><br>
+                      Should not have been treated for malaria within the last three months.
+                      <br>
+                      <br>
+                      Should not have undergone any immunization within the past one month.
+                      <br><br>
+                      Should not have undergone any dental work or taken aspirin within the last 72 hours.
+                      <br><br>
+                      Should not have consumed alcohol within the last 9 hours.
+                      <br><br>
+                      <i>                          If you have any chronic disease that is not mentioned here, you may register, but please inform the patient or the doctor or the hospital staff before you donate blood.
+                      </i>  <br><br><br>                       
+                      <b>                           Please do not register as a blood donor or donate blood in case
+                      </b><br>
+                      You are HIV+.
+                      <br>
+                      You are suffering, or have a history of cancer.
+                      <br>
+                      You are suffering from any blood clotting disorder, such as haemophilia.
+                      
+                                            </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+              </div>    
+        </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    function getURL() {
+alert("Copy : " + window.location.href);
+}
+</script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+{% endblock content %}

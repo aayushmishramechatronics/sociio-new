@@ -1,0 +1,81 @@
+ {% extends 'home/base.html' %} {% block head %} 
+<title>Sociio Ichor | Donate</title>
+<style>
+    body{
+        background-color: rgb(255, 255, 255);
+    }
+</style>
+{% endblock head %} {% block content %}
+
+
+
+<div class="container search-bar" style="margin-top:8%; margin-bottom: 10%;">
+   <div class="col-lg-4">
+    <form  action="{% url 'home:search-blood' %}" method="get">
+        <div class="input-group mb-4">
+          <input  type="text" name="q" id="q" placeholder="Search by blood group" aria-label="Search" class="form-control">
+          <div class="input-group-append">
+            <button id="button-addon5" type="submit" class="btn-search btn btn-primary"><i class="fa fa-search"></i></button>
+          </div>
+        </div>
+      </form>
+   </div>
+    <div class="row" style="margin-top: 5%;">
+        {% if blood %} 
+        
+        {% for b in blood %}
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300" data-aos-duration="700">
+        <a class="full-link" href="{% url 'home:details' b.slug %}" style="text-decoration: none;">
+            <div class="card kmc-card my-2">
+                <div class="header card-body">
+                    <span style="font-size: 60px;">{{ b.blood_request_id }}</span>  
+                     <span style="font-size: 20px;">KMC, Manipal - Blood Bank</span>
+                    <br>
+                    <div class="kmc-blood-info">
+                     <span class="kmc-blood-time">{{ b.time_stamp}}</span>
+                    </div>
+                    <ol class="kmc-blood-points">
+
+                        {% if b.blood_group %}
+
+                        <li class="kmc-blood-item"><span><b>Blood Group - </b>{{ b.blood_group }}</span></li>
+
+
+                        {% endif %} {% if b.blood_type %}
+                        <li class="kmc-blood-item"><span><b>Blood Type - </b>{{ b.blood_type }}</span></li>
+
+                        {% endif %} {% if b.units %}
+                        <li class="kmc-blood-item"><span><b>Units required - </b>{{ b.units }}</span></li>
+
+                        {% endif %}
+
+                    </ol>
+                    <a  href="{% url 'home:details' b.slug %}">                    
+                        <button class="btn btn-dark">Donate Now</button> </a>                    {% if b.urgent %}
+                        <a  href="{% url 'home:details' b.slug %}">                    
+
+                      <button class="btn button-red">Urgent</button></a>
+
+                    {% else %}
+                    {% endif %}
+                </div>
+            </div>
+        </a>
+        </div>
+        {% endfor %} {% else %}
+        <div class="container">
+            <div class="card kmc-card">
+                <div class="card-body">
+                    <p> We do not have any requests for blood donations right now <a style="color: black; font-weight: 800;" href="{% url 'home:donor' %}">register as donor now.</a> </p>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="col-lg-12 promo-text text-center my-5 " data-aos="fade" data-aos-delay="1000" data-aos-duration="1000">
+        <p style="font-family:Rubik; font-size: 120%;"> There is no substitute for blood, it only comes from generous donors. <a class="link-new" href="{% url 'home:donor' %}">Become a donor</a> and save a life, or two.</p>
+    </div>
+
+</div>
+{% endblock content %}
