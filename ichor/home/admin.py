@@ -14,7 +14,6 @@ class BloodRequestAdmin(ImportExportModelAdmin, admin.ModelAdmin):
 
 admin.site.register(BloodRequest, BloodRequestAdmin)
 
-
 class DonorRequestAdmin(admin.ModelAdmin):
     list_display=('full_name', 'phone','city' ,'blood_group')
     list_filter=('blood_group','city', 'state', )
@@ -35,17 +34,16 @@ class BankRequestAdmin(admin.ModelAdmin):
     search_fields=('city','state', 'pin_code', 'contact_name')
     
 admin.site.register(BankRequest, BankRequestAdmin)
-    
 
 
 
-class citiesAdmin(ImportExportModelAdmin.ModelAdmin):
+class citiesAdmin(ImportExportModelAdmin):
     list_display=['city_name']
     search_fields=['city_name']
 
 admin.site.register(cities, citiesAdmin)
 
-class statesAdmin(ImportExportModelAdmin.ModelAdmin):
+class statesAdmin(ImportExportModelAdmin):
     list_display=['name']
     search_fields=['name']
 
