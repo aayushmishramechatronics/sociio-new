@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'taggit',
     'newsletter',
     'crispy_forms',
-
     'django_summernote',
 ]
 

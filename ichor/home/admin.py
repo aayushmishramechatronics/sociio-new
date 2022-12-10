@@ -39,13 +39,13 @@ admin.site.register(BankRequest, BankRequestAdmin)
 
 
 
-class citiesAdmin(admin.ModelAdmin):
+class citiesAdmin(ImportExportModelAdmin.ModelAdmin):
     list_display=['city_name']
     search_fields=['city_name']
 
 admin.site.register(cities, citiesAdmin)
 
-class statesAdmin(admin.ModelAdmin):
+class statesAdmin(ImportExportModelAdmin.ModelAdmin):
     list_display=['name']
     search_fields=['name']
 
