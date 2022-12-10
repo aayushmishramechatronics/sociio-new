@@ -46,9 +46,9 @@ class states(models.Model):
 
 
 class cities(models.Model):
-    city_id = models.IntegerField(max_length=11, primary_key=True)
+    id = models.IntegerField(max_length=11)
     city_name = models.CharField(max_length=100, null=False, default='')
-    city_state = models.CharField(max_length=100, null=False, default='')
+    state_id = models.IntegerField(max_length=10)
 
     def __str__(self):
         return self.city_name

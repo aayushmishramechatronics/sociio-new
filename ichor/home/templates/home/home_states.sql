@@ -1,12 +1,4 @@
 
-CREATE TABLE IF NOT EXISTS home_states (
-id int(11) NOT NULL AUTO_INCREMENT,
-name varchar(512) NOT NULL DEFAULT '',
-PRIMARY KEY (id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-
 INSERT INTO home_states (id, name)
 VALUES
 (4,'Maharashtra'),

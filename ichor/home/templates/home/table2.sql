@@ -1,14 +1,14 @@
 
-CREATE TABLE IF NOT EXISTS `home_cities` (
-  `city_id` int(11) NOT NULL auto_increment,
+CREATE TABLE IF NOT EXISTS `cities` (
+  `city_id` int(11) NOT NULL,
   `city_name` varchar(100) NOT NULL,
   `city_state` varchar(100) NOT NULL,
-  PRIMARY KEY  (`city_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1624 ;
+
+) ;
 
 
 
-INSERT INTO `home_cities` (`city_id`, `city_name`, `city_state`) VALUES
+INSERT INTO `cities` (`city_id`, `city_name`, `city_state`) VALUES
 (1, 'Kolhapur', 'Maharashtra'),
 (2, 'Port Blair', 'Andaman & Nicobar Islands'),
 (3, 'Adilabad', 'Andhra Pradesh'),
