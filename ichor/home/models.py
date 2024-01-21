@@ -36,24 +36,20 @@ TYPE=(
     ('Plasma', 'Plasma'),
     ('Platelets', 'Platelets'),
 )
-
 class states(models.Model):
-    id = models.IntegerField(max_length=255, primary_key=True)
+    dbid = models.IntegerField(default="", editable=False)
     name = models.CharField(max_length=255, null=False)
+
     def __str__(self):
         return self.name
 
-
-
 class cities(models.Model):
-    id = models.IntegerField(max_length=11)
+    dbid = models.IntegerField(default="", editable=False, blank=True)
     city_name = models.CharField(max_length=100, null=False, default='')
-    state_id = models.IntegerField(max_length=10)
+    state_id = models.IntegerField(default="")
 
     def __str__(self):
         return self.city_name
-
-
 #STATUS=(
     #('0', 'Draft'),
     #('1', 'Publish')
@@ -97,8 +93,8 @@ class DonorRequest(models.Model):
     date_of_birth = models.DateField(default=None, blank=False)
     email_id = models.EmailField(max_length=200)
     phone = models.CharField(max_length=11, default='')
-    city = models.ForeignKey(cities, null=False, max_length=255, on_delete=models.CASCADE )
-    state = models.ForeignKey(states, null=False, max_length=255, on_delete=models.CASCADE)
+    city = models.ForeignKey(cities, null=False, on_delete=models.CASCADE)
+    state = models.ForeignKey(states, null=False, on_delete=models.CASCADE)
 
     pin_code = models.IntegerField(default=False)
     # weight = models.CharField(max_length=10, default='')

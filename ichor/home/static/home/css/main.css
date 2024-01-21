@@ -28,6 +28,94 @@ Support:         https://finestdevs.com/product-support/
 
 ******************************************************/
 /*=== Media Query ===*/
+
+/* Keyframes */
+@keyframes ticker {
+  0% {
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.ticker-heading {
+    position: absolute;
+    background: #b12d2d;
+    display: block;
+    left: 0;
+    top: 0;
+    height: 2.5rem;
+    padding: 11px 40px;
+    z-index: 2;
+    color: white;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+}
+
+.ticker-wrap .ticker__item:before {
+    content: '';
+    height: 11px;
+    width: 11px;
+    display: inline-block;
+    background-color: #1074bc;
+    border-radius: 100%;
+    position: relative;
+    margin-right: 15px;
+}
+
+.ticker-heading:after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 11px solid #b12d2d;
+    position: absolute;
+    margin-left: 40px;
+}
+
+.ticker-wrap {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+  height: 2.5rem;
+  background-color: #030303; 
+  padding-left: 100%;
+  box-sizing: content-box;
+}
+
+/* Pausing animation on hover */
+.ticker-wrap:hover .ticker {
+  animation-play-state: paused;
+}
+
+/* Ticker styles */
+.ticker {
+  display: inline-block;
+  height: 2.5rem;
+  line-height: 2.5rem;  
+  white-space: nowrap;
+  padding-right: 100%;
+  box-sizing: content-box;
+  animation-iteration-count: infinite; 
+  animation-timing-function: linear;
+  animation-name: ticker;
+  animation-duration: 30s;
+}
+
+/* Ticker item styles */
+.ticker__item {
+  display: inline-block;
+  padding: 0 2rem;
+  font-size: 0.875rem;
+  color: #fefefe;   
+}
+
+
 body[data-theme='dark'], .dark-bg, .dark-mode-texts {
   --bg:                 #19191b;
   --bg-2:                 #19191b;
