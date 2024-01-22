@@ -2,11 +2,6 @@
  {% load static %}
 {% block content %}
 
-
-
-
-
-
 <div class="hero-area-l11 position-relative overflow-hidden">
       <div class="container position-relative">
         <div class="row position-relative justify-content-center">
@@ -67,9 +62,14 @@
                   </div>
               </div>
           </div>
-         
+  
       </div>
-   
+      <div class="ticker-wrap">
+        <div class="ticker">
+           <div class="ticker_item">This is your ticker text. It is styled with css and the length of the text controlls the scroll speed. Longer text scrolls faster, the shorter the text, the slower it scrolls. </div>
+        
+          </div>
+        </div>
           <div class="col-lg-12 order-lg-1 order-0" data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
             <video src="{% static 'home/image/ichor.mp4' %}" controls width="100%" style="border-radius: 7px;"></video>
             <!-- <img src="image/l2/laptop-screen.png" alt="" class="w-100 hero-l11-main-image"> -->
@@ -305,62 +305,61 @@ We send requests to all the nearby blood banks,
     <!-- Testimonial Section -->
 
     <section class="testimonial" data-aos="fade" data-aos-delay="500" data-aos-duration="1000">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 d-none d-lg-block">
-                    <ol class="carousel-indicators tabs">
-                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active">
-                            <figure>
-                                <img src="https://livedemo00.template-help.com/wt_62267_v8/prod-20823-one-service/images/testimonials-01-179x179.png" class="img-fluid" alt="">
-                            </figure>
-                        </li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="1">
-                            <figure>
-                                <img src="https://livedemo00.template-help.com/wt_62267_v8/prod-20823-one-service/images/testimonials-02-306x306.png" class="img-fluid" alt="">
-                            </figure>
-                        </li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="2">
-                            <figure>
-                                <img src="https://livedemo00.template-help.com/wt_62267_v8/prod-20823-one-service/images/testimonials-03-179x179.png" class="img-fluid" alt="">
-                            </figure>
-                        </li>
-                    </ol>
-                </div>
-                <div class="col-lg-6 d-flex justify-content-center align-items-center">
-                    <div id="carouselExampleIndicators" data-interval="false" class="carousel slide" data-ride="carousel">
-                        <h3>WHAT OUR DONORS SAY</h3>
-                        <h1>TESTIMONIALS</h1>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <div class="quote-wrapper">
-                                    <p>I have tried a lot of food delivery services but Plate is something out of this world! Their food is really healthy and it tastes great, which is why I recommend this company to all my friends!</p>
-                                    <h3>peter lee</h3>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="quote-wrapper">
-                                    <p>I have tried a lot of food delivery services but Plate is something out of this world! Their food is really healthy and it tastes great, which is why I recommend this company to all my friends!</p>
-                                    <h3>peter lee</h3>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="quote-wrapper">
-                                    <p>I have tried a lot of food delivery services but Plate is something out of this world! Their food is really healthy and it tastes great, which is why I recommend this company to all my friends!</p>
-                                    <h3>peter lee</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <ol class="carousel-indicators indicators">
-                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-6 d-none d-lg-block">
+                  <ol class="carousel-indicators tabs">
+                      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active">
+                          <figure>
+                              <img src="https://livedemo00.template-help.com/wt_62267_v8/prod-20823-one-service/images/testimonials-01-179x179.png" class="img-fluid" alt="">
+                          </figure>
+                      </li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="1">
+                          <figure>
+                              <img src="https://livedemo00.template-help.com/wt_62267_v8/prod-20823-one-service/images/testimonials-02-306x306.png" class="img-fluid" alt="">
+                          </figure>
+                      </li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="2">
+                          <figure>
+                              <img src="https://livedemo00.template-help.com/wt_62267_v8/prod-20823-one-service/images/testimonials-03-179x179.png" class="img-fluid" alt="">
+                          </figure>
+                      </li>
+                  </ol>
+              </div>
+              <div class="col-lg-6 d-flex justify-content-center align-items-center">
+                  <div id="carouselExampleIndicators" data-interval="false" class="carousel slide" data-ride="carousel">
+                      <h3>WHAT OUR DONORS SAY</h3>
+                      <h1>TESTIMONIALS</h1>
+                      <div class="carousel-inner">
+                          <div class="carousel-item active">
+                              <div class="quote-wrapper">
+                                  <p>I have tried a lot of food delivery services but Plate is something out of this world! Their food is really healthy and it tastes great, which is why I recommend this company to all my friends!</p>
+                                  <h3>peter lee</h3>
+                              </div>
+                          </div>
+                          <div class="carousel-item">
+                              <div class="quote-wrapper">
+                                  <p>I have tried a lot of food delivery services but Plate is something out of this world! Their food is really healthy and it tastes great, which is why I recommend this company to all my friends!</p>
+                                  <h3>peter lee</h3>
+                              </div>
+                          </div>
+                          <div class="carousel-item">
+                              <div class="quote-wrapper">
+                                  <p>I have tried a lot of food delivery services but Plate is something out of this world! Their food is really healthy and it tastes great, which is why I recommend this company to all my friends!</p>
+                                  <h3>peter lee</h3>
+                              </div>
+                          </div>
+                      </div>
+                      <ol class="carousel-indicators indicators">
+                          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                      </ol>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
 
     <!-- Newsletter-area start -->
     <div class="newsletter-l-11">
@@ -370,13 +369,12 @@ We send requests to all the nearby blood banks,
           <div class="col-xxl-6 col-xl-7 col-lg-8 col-md-11" data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
             <div class="content text-center">
               <h5>Lets Save Lives Together</h5>
-              <h2>Register As A Donor!</h2>
-              <p>We designed and tested prototypes that helped identify pain points in the account creation
-                process. Together, we shaped the new standard.</p>
+              <!-- <h2>Register As A Donor!</h2> -->
+              <p>We send requests to all the nearby blood banks, ridding you of the hassle to look around to find a suitable donor.   </p>
               <div class="btn-area">
-                <a href="#" class="btn"><i class="fas fa-download d-inline-block"></i>Register Now</a>
+                <a href="{% url 'home:contact' %}" class="btn">Contact Us</a>
               </div>
-              <span>Lorem ipsum dolor sit amet.</span>
+              <span>Come, let's make the world a better place</span>
             </div>
           </div>
         </div>

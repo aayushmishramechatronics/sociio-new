@@ -27,9 +27,13 @@ def base(request):
 def guidelines(request):
     return render(request, 'home/guidelines.html')
 
+def aboutus(request):
+    return render(request, 'home/aboutus.html')
+
 
 def home(request):
     return render(request, 'home/home.html')
+
 def preform(request):
     return render(request, 'home/preform.html')
 

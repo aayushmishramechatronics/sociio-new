@@ -50,12 +50,25 @@ class cities(models.Model):
 
     def __str__(self):
         return self.city_name
-#STATUS=(
-    #('0', 'Draft'),
-    #('1', 'Publish')
-#)
+class DonorRequest(models.Model):
+    full_name = models.CharField(max_length=200, default='')
+    date_of_birth = models.DateField(default=None, blank=False)
+    email_id = models.EmailField(max_length=200)
+    phone = models.CharField(max_length=11, default='')
+    city = models.ForeignKey(cities, null=False, on_delete=models.CASCADE)
+    state = models.ForeignKey(states, null=False, on_delete=models.CASCADE)
 
-# Create your models here.
+    pin_code = models.IntegerField(default=False)
+    # weight = models.CharField(max_length=10, default='')
+    I_agree_to_the_terms_and_conditions_stated_below = models.BooleanField(blank=False,  default=True)
+    blood_group = models.CharField(
+        max_length=4, choices=BG_CHOICES, default=None
+    
+    )    
+    comment = models.TextField(default='', null=True, blank=True)
+    designation = models.TextField(default='', null=True, blank=True)
+    photo = models.ImageField(upload_to=upload_review_photo, blank=True, default=None, null=True)
+
 class BloodRequest(models.Model):
     blood_request_id = models.AutoField(primary_key=True)
     time_stamp = models.DateTimeField(auto_now_add=True)
@@ -88,24 +101,6 @@ def pre_save_blog_post_receiver(sender, instance, *args, **kwargs):
 pre_save.connect(pre_save_blog_post_receiver, sender=BloodRequest)
 
 
-class DonorRequest(models.Model):
-    full_name = models.CharField(max_length=200, default='')
-    date_of_birth = models.DateField(default=None, blank=False)
-    email_id = models.EmailField(max_length=200)
-    phone = models.CharField(max_length=11, default='')
-    city = models.ForeignKey(cities, null=False, on_delete=models.CASCADE)
-    state = models.ForeignKey(states, null=False, on_delete=models.CASCADE)
-
-    pin_code = models.IntegerField(default=False)
-    # weight = models.CharField(max_length=10, default='')
-    I_agree_to_the_terms_and_conditions_stated_below = models.BooleanField(blank=False,  default=True)
-    blood_group = models.CharField(
-        max_length=4, choices=BG_CHOICES, default=None
-    
-    )    
-    comment = models.TextField(default='', null=True, blank=True)
-    designation = models.TextField(default='', null=True, blank=True)
-    photo = models.ImageField(upload_to=upload_review_photo, blank=True, default=None, null=True)
 
 
 class BankRequest(models.Model):

@@ -15,5 +15,6 @@ urlpatterns = [
     path('blood-donation-guidelines/', views.guidelines, name='guidelines'),
     path('register/', views.preform, name='preform'),
     path('contactus/', views.contactus, name = 'contact'),
+    path('aboutus/', views.aboutus, name = 'aboutus'),
 
 ]

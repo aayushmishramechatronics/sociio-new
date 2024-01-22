@@ -9,7 +9,7 @@
 
 
 
-<div class="container search-bar" style="margin-top:8%; margin-bottom: 10%;">
+<div class="container search-bar" style="margin-top:15% !important; ">
    <div class="col-lg-4">
     <form  action="{% url 'home:search-blood' %}" method="get">
         <div class="input-group mb-4">
@@ -28,7 +28,7 @@
         <a class="full-link" href="{% url 'home:details' b.slug %}" style="text-decoration: none;">
             <div class="card kmc-card my-2">
                 <div class="header card-body">
-                    <span style="font-size: 60px;">{{ b.blood_request_id }}</span>  
+                    <!-- <span style="font-size: 60px;">{{ b.blood_request_id }}</span>   -->
                      <span style="font-size: 20px;">KMC, Manipal - Blood Bank</span>
                     <br>
                     <div class="kmc-blood-info">
