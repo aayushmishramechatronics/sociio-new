@@ -18,5 +18,4 @@ urlpatterns = [
     path('aboutus/', views.aboutus, name = 'aboutus'),
     path('stem-cell-donation/', views.aboutus, name = 'stem_guidelines'),
 
-
 ]
