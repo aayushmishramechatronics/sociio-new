@@ -16,5 +16,7 @@ urlpatterns = [
     path('register/', views.preform, name='preform'),
     path('contactus/', views.contactus, name = 'contact'),
     path('aboutus/', views.aboutus, name = 'aboutus'),
+    path('stem-cell-donation/', views.aboutus, name = 'stem_guidelines'),
+
 
 ]

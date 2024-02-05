@@ -27,6 +27,11 @@ def base(request):
 def guidelines(request):
     return render(request, 'home/guidelines.html')
 
+
+def stem_guidelines(request):
+    return render(request, 'home/stem_cell.html')
+
+
 def aboutus(request):
     return render(request, 'home/aboutus.html')
 
